@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anasayfa</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/anasayfa.css' %}">
 </head>
+
 <body>
-    <h1>Hoş geldiniz!</h1>
-    <p>Kullanıcı kaydı başarıyla tamamlandı.</p>
-    <!-- İçeriğinizi buraya ekleyin -->
+    {% if user.is_authenticated %}
+    <h1>Hoş geldiniz, {{ user.username }}!</h1>
+    <div id="gunluklerim">
+        <h1>Günlüklerim</h1>
+        <ul>
+            {% for gunluk in gunlukler %}
+            <li><a href="{% url 'gunluk_detay' gunluk.id %}">{{ gunluk.baslik }}</a></li>
+            {% endfor %}
+        </ul>
+        <a id="yeni_gunluk" href="{% url 'gunluk_olustur' %}">Yeni Günlük Oluştur</a>
+        {% else %}
+        <h1>Hoş geldiniz!</h1>
+        <p>Lütfen giriş yapın veya kayıt olun.</p>
+        {% endif %}
 </body>
+
 </html>

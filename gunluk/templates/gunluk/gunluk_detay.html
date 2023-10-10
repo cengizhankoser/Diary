@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ gunluk.baslik }}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/gunluk_detay.css' %}">
+
+</head>
+<body>
+    <div id="gunluk_detay">
+        <h2 id="baslik">{{ gunluk.baslik }}</h2>
+        <p id="icerik">{{ gunluk.icerik }}</p>
+        <p id="kullanici">Kullanıcı: {{ gunluk.kullanici }}</p>
+        <p id="olusturma_tarihi">Oluşturulma Tarihi: {{ gunluk.olusturma_tarihi }}</p>
+    </div>
+</body>
+</html>

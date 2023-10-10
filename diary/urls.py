@@ -25,5 +25,7 @@ urlpatterns = [
     path('gunluk_olustur/', views.gunluk_olustur, name='gunluk_olustur'),
     path('giris/', views.giris_yap, name='giris'),
     path('', views.giris_yap, name='giris'),
+    path('gunluk/<int:gunluk_id>/', views.gunluk_detay, name='gunluk_detay'),
+
 
 ]
